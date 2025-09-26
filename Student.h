@@ -13,6 +13,7 @@ private:
     string passport_;
 
 public:
+    // Конструктор студента
     Student(const string& first, const string& last,
             int height, int weight,
             const string& studentId,
@@ -27,6 +28,7 @@ public:
         return "Student";
     }
 
+    // Підготовка даних студента до збереження у файл
     string serializeAttributes() const override {
         ostringstream oss;
         oss << "\"firstname\": \"" << firstName() << "\",\n"
@@ -38,6 +40,7 @@ public:
         return oss.str();
     }
 
+    // Спрощення інфи про студента для виводу в консоль
     string describe() const override {
         ostringstream oss;
         oss << "Student " << firstName() << " " << lastName()
@@ -48,9 +51,10 @@ public:
         return oss.str();
     }
 
-    void Study() {
+    void Study() { // Пустий метод, студенти вчаться :-)
     }
 
+    // Формула ідеальної ваги
     bool isIdealWeight() const {
         return (heightCm_ - 110) == weightKg_;
     }

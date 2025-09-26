@@ -8,6 +8,7 @@ protected:
     string firstName_;
     string lastName_;
 public:
+    // Конструктор імені і прізвища
     Person(const string& first, const string& last)
         : firstName_(first), lastName_(last) {}
     virtual ~Person() = default;

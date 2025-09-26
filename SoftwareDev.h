@@ -9,6 +9,7 @@ private:
     string devId_;
     string primaryLanguage_;
 public:
+    // Конструктор програміста
     SoftwareDeveloper(const string& first, const string& last,
                       const string& devId,
                       const string& lang)
@@ -16,6 +17,7 @@ public:
 
     string typeName() const override { return "SoftwareDeveloper"; }
 
+    // Підготовка до збереження у файл
     string serializeAttributes() const override {
         ostringstream oss;
         oss << "\"firstname\": \"" << firstName() << "\",\n"
@@ -24,7 +26,7 @@ public:
             << "\"language\": \"" << primaryLanguage_ << "\"";
         return oss.str();
     }
-
+    // Спрощенний опис в консоль
     string describe() const override {
         ostringstream oss;
         oss << "SoftwareDeveloper " << firstName_ << " " << lastName_
