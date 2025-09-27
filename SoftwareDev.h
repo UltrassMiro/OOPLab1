@@ -29,7 +29,7 @@ public:
     // Спрощенний опис в консоль
     string describe() const override {
         ostringstream oss;
-        oss << "SoftwareDeveloper " << firstName_ << " " << lastName_
+        oss << "Software Developer " << firstName_ << " " << lastName_
             << " [devId=" << devId_ << ", lang=" << primaryLanguage_ << "]";
         return oss.str();
     }
