@@ -13,7 +13,7 @@ public:
     Librarian(const string& first, const string& last,
               const string& employeeId,
                     string skills)
-        : Person(first, last), employeeId_(employeeId), skills_(skills) {}
+        : Person(first, last), employeeId_(employeeId), skills_(move(skills)){}
 
     string typeName() const override { return "Librarian"; }
 

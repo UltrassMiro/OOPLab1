@@ -15,7 +15,7 @@ public:
                       const string& devId,
                       const string& lang,
                             string skills)
-        : Person(first, last), devId_(devId), primaryLanguage_(lang), skills_(skills) {}
+        : Person(first, last), devId_(devId), primaryLanguage_(lang), skills_(move(skills)){}
 
     string typeName() const override { return "SoftwareDeveloper"; }
 
