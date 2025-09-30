@@ -15,7 +15,7 @@ private:
     int count_ = 0;
 
 public:
-    //
+
     bool Add(Record* r) {
         if (count_ >= 100) return false;
         records_[count_++] = r;
@@ -125,7 +125,7 @@ public:
             sregex_iterator end;
 
             string firstname, lastname;
-            string heightStr, weightStr, studentId, passport;
+            string heightStr, weightStr, studentId, passport, skills;
             string employeeId, devId, lang;
 
             // Парсер для "key": "value", заповнює атрибути інфою
@@ -138,6 +138,7 @@ public:
                 else if (key == "weight") weightStr = val;
                 else if (key == "studentId") studentId = val;
                 else if (key == "passport") passport = val;
+                else if (key == "skills") skills = val;
                 else if (key == "employeeId") employeeId = val;
                 else if (key == "devId") devId = val;
                 else if (key == "language") lang = val;
@@ -148,11 +149,11 @@ public:
                 int w = weightStr.empty() ? 0 : stoi(weightStr);
 
                 // Створює об'єкт, конструктор приймає дані і записує їх в масив
-                records_[count_++] = new Student(firstname, lastname, h, w, studentId, passport);
+                records_[count_++] = new Student(firstname, lastname, h, w, studentId, passport, skills);
             } else if (type == "Librarian") {
-                records_[count_++] = new Librarian(firstname, lastname, employeeId);
+                records_[count_++] = new Librarian(firstname, lastname, employeeId, skills);
             } else if (type == "SoftwareDeveloper") {
-                records_[count_++] = new SoftwareDeveloper(firstname, lastname, devId, lang);
+                records_[count_++] = new SoftwareDeveloper(firstname, lastname, devId, lang, skills);
             }
         }
 

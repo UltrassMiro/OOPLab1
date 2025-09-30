@@ -81,7 +81,7 @@ public:
 
     // Виводить блок тексту і дозволяє вводити інфу при створенні студента
     void AddStudent() {
-        string fname, lname, studentId, passport;
+        string fname, lname, studentId, passport, skills;
         int height, weight;
 
         cout << "Enter name: ";
@@ -97,14 +97,16 @@ public:
         getline(cin, studentId);
         cout << "Enter id: ";
         getline(cin, passport);
+        cout << "Enter additional skills: ";
+        getline(cin, skills);
 
-        repository.Add(new Student(fname, lname, height, weight, studentId, passport));
+        repository.Add(new Student(fname, lname, height, weight, studentId, passport, skills));
         cout << "Student has been added.\n";
     }
 
     // Виводить блок тексту і дозволяє вводити інфу при створенні бібліотекаря
     void AddLibrarian() {
-        string fname, lname, employeeId;
+        string fname, lname, employeeId, skills;
 
         cout << "Enter name: ";
         getline(cin, fname);
@@ -112,14 +114,16 @@ public:
         getline(cin, lname);
         cout << "Enter employee Id: ";
         getline(cin, employeeId);
+        cout << "Enter additional skills: ";
+        getline(cin, skills);
 
-        repository.Add(new Librarian(fname, lname, employeeId));
+        repository.Add(new Librarian(fname, lname, employeeId, skills));
         cout << "Librarian has been added.\n";
     }
 
     // Виводить блок тексту і дозволяє вводити інфу при створенні програміста
     void AddSoftwareDeveloper() {
-        string fname, lname, devId, lang;
+        string fname, lname, devId, lang, skills;
 
         cout << "Enter name: ";
         getline(cin, fname);
@@ -129,8 +133,10 @@ public:
         getline(cin, devId);
         cout << "Enter programming language: ";
         getline(cin, lang);
+        cout << "Enter additional skills: ";
+        getline(cin, skills);
 
-        repository.Add(new SoftwareDeveloper(fname, lname, devId, lang));
+        repository.Add(new SoftwareDeveloper(fname, lname, devId, lang, skills));
         cout << "Software developer has been added.\n";
     }
 };
