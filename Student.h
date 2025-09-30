@@ -11,18 +11,21 @@ private:
     int weightKg_;
     string studentId_;
     string passport_;
+    string skills_;
 
 public:
     // Конструктор студента
     Student(const string& first, const string& last,
             int height, int weight,
             const string& studentId,
-            const string& passport)
+            const string& passport,
+            string skills)
         : Person(first, last),
           heightCm_(height),
           weightKg_(weight),
           studentId_(studentId),
-          passport_(passport) {}
+          passport_(passport),
+          skills_(move(skills)){}
 
     string typeName() const override {
         return "Student";
@@ -36,7 +39,8 @@ public:
             << "\"height\": \"" << heightCm_ << "\",\n"
             << "\"weight\": \"" << weightKg_ << "\",\n"
             << "\"studentId\": \"" << studentId_ << "\",\n"
-            << "\"passport\": \"" << passport_ << "\"";
+            << "\"passport\": \"" << passport_ << "\", \n"
+            << "\"skills\": \"" << skills_ << "\"";
         return oss.str();
     }
 
@@ -47,11 +51,12 @@ public:
             << " [ID=" << studentId_
             << ", H=" << heightCm_ << "cm"
             << ", W=" << weightKg_ << "kg"
-            << ", P=" << passport_ << "]";
+            << ", P=" << passport_
+            << ", S=" << skills_ << "]";
         return oss.str();
     }
 
-    void Study() { // Пустий метод, студенти вчаться :-)
+    void Study() { // Пустий метод, студенти ще вчаться :-)
     }
 
     // Формула ідеальної ваги
